@@ -851,3 +851,47 @@ Reason:
 - It works even when no local server exists
 - It exposes missing root files early
 - It gives the cleanest baseline for later retries
+
+## 9. Change Request Loop Plan
+
+Current status: `HITL_REQUIRED`
+
+Change Request ID: `CR-2026-07-14-001`
+
+### Loop CR-001
+
+- Loop ID: `CR-L1`
+- Connected Change Item: `CR-001`
+- Target: Replace public-facing `[사람 확인 필요]` placeholders in `index.html`
+- Input materials: Verified profile facts from the user, approved public wording
+- Act: Replace placeholder copy with verified content only
+- Observe: Render the site and confirm placeholders are removed from the public profile sections
+- Reason: `CONTENT`
+- Verifier: Browser render + DOM text inspection
+- Completion criteria: No placeholder text remains in public-facing profile sections
+- Retry policy: One content source issue per retry, maximum 3 retries
+- Stop conditions: Missing source facts, conflicting instructions, or repeated content-fingerprint failure
+- HITL conditions: No verified personal profile facts have been supplied
+- Expected files: `index.html`
+- Predecessor: none
+- Next loop: `CR-L2`
+- State: `HITL_REQUIRED`
+
+### Loop CR-002
+
+- Loop ID: `CR-L2`
+- Connected Change Item: `CR-002`
+- Target: Update operational notes in `MEMORY.md`
+- Input materials: Confirmed next step or explicit instruction to keep placeholders unresolved
+- Act: Replace placeholder operational notes only if they can be made factual
+- Observe: Confirm that execution notes remain accurate and preserved
+- Reason: `CONTENT`
+- Verifier: File inspection
+- Completion criteria: No unexplained placeholder notes remain, or they are explicitly marked pending
+- Retry policy: Maximum 3 retries per content issue
+- Stop conditions: Need to preserve records, missing facts, or conflict with previous deployment history
+- HITL conditions: No confirmed follow-up step or factual replacement exists
+- Expected files: `MEMORY.md`
+- Predecessor: `CR-L1`
+- Next loop: none
+- State: `HITL_REQUIRED`

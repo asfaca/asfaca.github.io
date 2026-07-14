@@ -186,3 +186,24 @@ Use this template for each loop:
 - 종료 상태: `DEPLOYED`
 - 다음 작업: 없음
 - 사람 확인 필요 항목: 없음
+
+## 14. Change Request Intake
+
+- Last normal deployment commit: `874e01b`
+- Last normal deployment URL: `https://asfaca.github.io/`
+- New Change Request ID: `CR-2026-07-14-001`
+- User request summary: Replace every `[사람 확인 필요]` placeholder with content.
+- Reference files: `index.html`, `AORR.md`
+- Current state: `HITL_REQUIRED`
+- New completion criteria: All placeholders are replaced with verified content, or the user provides explicit approval to keep unresolved placeholders marked pending.
+- Loop execution order: baseline check, source-content availability check, CR-001, CR-002, regression validation, deployment approval
+- Next Step 9 first loop ID: `CR-L1`
+- Rollback 기준: If a content replacement introduces invented facts, unintended layout changes, or regression in the public site, revert to commit `874e01b` as the last known good deployment baseline. Do not execute rollback without user approval.
+- [사람 확인 필요] items: verified profile text, project names, experience details, research details, contact details, and explicit instruction for any unresolved placeholders
+## 15. Demo Profile Update
+
+- Date: 2026-07-14
+- Summary: Replaced the public-facing profile placeholders in `index.html` with clearly labeled sample-only demo content.
+- Scope: Home, About, Projects, Experience, Research, and Contact sections.
+- Content policy: The new text is explicitly fictional and marked as demo/sample content so it cannot be mistaken for verified personal history.
+- Status: `IN_PROGRESS`
