@@ -1,18 +1,173 @@
----
-layout: default
----
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suwan EAI | Professional Portfolio</title>
+    <meta
+      name="description"
+      content="A static professional website for GitHub Pages with a responsive layout and a playable snake game."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">SE</div>
+        <div>
+          <p class="eyebrow">GitHub Pages Portfolio</p>
+          <h1>Suwan EAI</h1>
+        </div>
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#games" class="nav-link nav-link--games">Games</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero section">
+        <div class="hero-copy">
+          <p class="section-kicker">Home</p>
+          <h2>Static, polished, and ready for GitHub Pages.</h2>
+          <p>
+            This site is designed as a compact professional portfolio with a dedicated games area for a
+            snake game that supports keyboard, touch, pause, restart, score, and best-score tracking.
+          </p>
+          <div class="hero-pills" aria-label="Highlights">
+            <span>Responsive</span>
+            <span>Static</span>
+            <span>Games Ready</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section content-card">
+        <p class="section-kicker">About</p>
+        <h2>Professional overview</h2>
+        <p>
+          [사람 확인 필요] Replace this with the approved profile summary, focus area, and a short
+          professional introduction that is accurate for the public site.
+        </p>
+      </section>
+
+      <section id="projects" class="section content-card">
+        <p class="section-kicker">Projects</p>
+        <h2>Selected work</h2>
+        <div class="card-grid">
+          <article class="mini-card">
+            <h3>[사람 확인 필요] Project 01</h3>
+            <p>Insert a verified project summary, links, and outcomes here.</p>
+          </article>
+          <article class="mini-card">
+            <h3>[사람 확인 필요] Project 02</h3>
+            <p>Use only approved details from the real portfolio content.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section content-card">
+        <p class="section-kicker">Experience</p>
+        <h2>Work history</h2>
+        <p>
+          [사람 확인 필요] Add validated experience entries, responsibilities, and date ranges before
+          publishing.
+        </p>
+      </section>
+
+      <section id="research" class="section content-card">
+        <p class="section-kicker">Research</p>
+        <h2>Research or interests</h2>
+        <p>
+          [사람 확인 필요] Add research, publications, or technical interests only if they are verified
+          and intended for public display.
+        </p>
+      </section>
+
+      <section id="games" class="section games-card">
+        <div class="games-head">
+          <div>
+            <p class="section-kicker">Games</p>
+            <h2>Snake</h2>
+          </div>
+          <div class="status-stack">
+            <span class="status-pill" id="game-status">Ready</span>
+            <span class="status-pill status-pill--soft" id="best-score">Best 0</span>
+          </div>
+        </div>
+
+        <div class="games-layout">
+          <div class="game-stage">
+            <div id="snake-board" aria-label="Snake game board" role="img"></div>
+            <div class="game-overlay" id="game-overlay">
+              <p>Press Start to begin the snake game.</p>
+            </div>
+          </div>
+
+          <div class="game-panel">
+            <div class="scoreboard">
+              <div>
+                <span class="score-label">Score</span>
+                <strong id="score">0</strong>
+              </div>
+              <div>
+                <span class="score-label">Best</span>
+                <strong id="best-score-value">0</strong>
+              </div>
+            </div>
+
+            <div class="control-row">
+              <button type="button" class="control-button primary" id="start-btn">Start</button>
+              <button type="button" class="control-button" id="pause-btn">Pause</button>
+              <button type="button" class="control-button" id="restart-btn">Restart</button>
+            </div>
+
+            <p class="game-help">
+              Controls: Arrow keys, WASD, touch buttons, or swipe on the board. The game prevents
+              immediate reverse direction and stops page scrolling while you play.
+            </p>
+
+            <div class="dpad" aria-label="Mobile game controls">
+              <button type="button" class="pad-button pad-up" data-direction="up" aria-label="Move up">
+                ↑
+              </button>
+              <div class="pad-middle">
+                <button type="button" class="pad-button" data-direction="left" aria-label="Move left">
+                  ←
+                </button>
+                <button type="button" class="pad-button" data-direction="right" aria-label="Move right">
+                  →
+                </button>
+              </div>
+              <button type="button" class="pad-button pad-down" data-direction="down" aria-label="Move down">
+                ↓
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section content-card">
+        <p class="section-kicker">Contact</p>
+        <h2>Contact details</h2>
+        <p>
+          [사람 확인 필요] Replace this with the approved contact route, email, or social links before
+          publishing.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
